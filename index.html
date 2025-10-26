@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ✅ SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tools Hub – Free Online Image & PDF Tools</title>
+  <meta name="description" content="Free online image and PDF tools – compress, convert, merge, resize, and optimize files easily. Fast, secure, and works entirely in your browser.">
+  <meta name="keywords" content="image compressor, pdf merger, converter, resize image, online tools, pdf to jpg, jpg to pdf, optimize images">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- ✅ Open Graph -->
+  <meta property="og:title" content="Smart Tools Hub – Free Online Image & PDF Tools">
+  <meta property="og:description" content="A collection of free browser tools for image and PDF editing, conversion, and compression.">
+  <meta property="og:image" content="https://example.com/preview.png">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ Theme -->
+  <meta name="theme-color" content="#0b1226">
+
+  <!-- ✅ Google AdSense (replace YOUR_ADSENSE_CLIENT_ID) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT_ID" crossorigin="anonymous"></script>
+
+  <!-- ✅ Styles -->
+  <style>
+    :root {
+      --bg: #0b1226;
+      --card: #111827;
+      --accent: #6366f1;
+      --muted: #94a3b8;
+      --radius: 16px;
+      --max-width: 1200px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg), #0d132b);
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #1e293b, #0b1226 60%);
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .hero button {
+      background: linear-gradient(90deg, var(--accent), #4f46e5);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 12px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .hero button:hover { opacity: 0.9; }
+
+    main {
+      max-width: var(--max-width);
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tool {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tool:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .tool img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 12px;
+    }
+
+    .tool h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .tool p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 6px 0 12px;
+      min-height: 36px;
+    }
+
+    .tool a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .ads {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 728px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #0b1121;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 1.6rem; }
+      header h1 { font-size: 1.2rem; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header>
+    <h1>Smart Tools Hub</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#image-tools">Image Tools</a>
+      <a href="#pdf-tools">PDF Tools</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero">
+    <h2>Free Online Tools for Image & PDF Editing</h2>
+    <p>Compress, convert, merge, and optimize images or PDFs — all directly in your browser, with zero uploads or privacy risks.</p>
+    <button onclick="window.location.href='#image-tools'">Explore Tools</button>
+  </section>
+
+  <!-- ✅ AdSense Section -->
+  <div class="ads">
+    <!-- Replace with your AdSense unit -->
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="YOUR_ADSENSE_CLIENT_ID"
+      data-ad-slot="AD_SLOT_ID_1"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ✅ Main Content -->
+  <main>
+    <h2 id="image-tools" class="section-title">🖼️ Image Tools</h2>
+    <div class="tool-grid">
+      <div class="tool">
+        <img src="icons/compress.png" alt="Image Compressor">
+        <h3>Image Compressor</h3>
+        <p>Reduce image size without losing quality.</p>
+        <a href="image-compressor.html">Try Now →</a>
+      </div>
+      <div class="tool">
+        <img src="icons/resize.png" alt="Resize Image">
+        <h3>Resize Image</h3>
+        <p>Change image dimensions quickly and easily.</p>
+        <a href="#">Open Tool →</a>
+      </div>
+      <div class="tool">
+        <img src="icons/convert.png" alt="Image Converter">
+        <h3>Image Converter</h3>
+        <p>Convert between JPG, PNG, WebP and more.</p>
+        <a href="#">Open Tool →</a>
+      </div>
+    </div>
+
+    <h2 id="pdf-tools" class="section-title" style="margin-top:50px;">📄 PDF Tools</h2>
+    <div class="tool-grid">
+      <div class="tool">
+        <img src="icons/pdf-merge.png" alt="Merge PDF">
+        <h3>Merge PDF</h3>
+        <p>Combine multiple PDF files into one document.</p>
+        <a href="#">Try Now →</a>
+      </div>
+      <div class="tool">
+        <img src="icons/pdf-split.png" alt="Split PDF">
+        <h3>Split PDF</h3>
+        <p>Extract or separate specific pages from a PDF.</p>
+        <a href="#">Open Tool →</a>
+      </div>
+      <div class="tool">
+        <img src="icons/pdf-compress.png" alt="Compress PDF">
+        <h3>Compress PDF</h3>
+        <p>Reduce PDF file size while keeping quality.</p>
+        <a href="#">Open Tool →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ✅ Second Ad Slot -->
+  <div class="ads">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="YOUR_ADSENSE_CLIENT_ID"
+      data-ad-slot="AD_SLOT_ID_2"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer id="about">
+    <p>© 2025 Smart Tools Hub | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+    <p>All tools run locally in your browser. Safe, fast, and free.</p>
+  </footer>
+
+</body>
+</html>
