@@ -3,113 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="All-in-one online tools for image, PDF, and more. Compress, convert, and edit your files easily.">
-<meta name="keywords" content="image tools, PDF tools, online converter, image compressor, PDF editor">
+<meta name="description" content="Compress your images online quickly and easily without losing quality. Choose the compression level and download the optimized image.">
+<meta name="keywords" content="image compressor, image optimizer, reduce image size, online image compression">
 <meta name="author" content="YourName">
-<title>Online Tools Hub</title>
+<title>Image Compressor - Online Tools Hub</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Styles -->
 <style>
 * { box-sizing: border-box; margin:0; padding:0; }
-body { font-family: 'Roboto', sans-serif; background: #f5f6fa; color:#333; }
+body { font-family:'Roboto', sans-serif; background:#f5f6fa; color:#333; }
 header { background: linear-gradient(135deg,#4CAF50,#67e8f9); color:white; padding:20px; text-align:center; font-size:1.8em; font-weight:700; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
 nav { display:flex; justify-content:center; gap:20px; margin-top:10px; flex-wrap:wrap; }
 nav a { color:white; text-decoration:none; font-weight:500; padding:8px 15px; border-radius:5px; transition:0.3s; }
 nav a:hover { background: rgba(255,255,255,0.2); }
 
-.hero { text-align:center; padding:40px 20px; background:#e0f7fa; margin-bottom:30px; border-radius:10px; }
-.hero h1 { font-size:2.5em; margin-bottom:15px; }
-.hero p { font-size:1.2em; color:#555; }
+.container { max-width:700px; margin:30px auto; padding:20px; background:white; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.1); }
+h1 { text-align:center; margin-bottom:20px; font-size:2em; }
+p { text-align:center; color:#555; margin-bottom:20px; }
 
-.container { max-width:1200px; margin:0 auto; padding:0 20px; }
-
-.tools-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-
-.tool-card { background:white; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.05); text-align:center; padding:25px 15px; transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; }
-.tool-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
-.tool-card img { width:70px; height:70px; object-fit:contain; margin-bottom:15px; }
-.tool-card h3 { font-size:1.2em; margin-bottom:10px; }
-.tool-card p { font-size:0.95em; color:#555; margin-bottom:15px; }
-.tool-card a { display:inline-block; padding:8px 15px; background: linear-gradient(135deg,#4CAF50,#67e8f9); color:white; border-radius:6px; text-decoration:none; font-weight:500; transition:0.3s; }
-.tool-card a:hover { background: linear-gradient(135deg,#45a049,#50c7e1); }
-
-.ad-space { margin:25px 0; text-align:center; }
-
-footer { background:#222; color:white; text-align:center; padding:20px 10px; margin-top:40px; border-radius:10px 10px 0 0; }
-
-#compress-section { background:white; padding:20px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.1); margin-top:20px; text-align:center; }
-
-#image-input { display:block; margin:10px auto; }
+#compress-section { text-align:center; }
+#image-input { display:block; margin:15px auto; }
 input[type="range"] { width:100%; margin:10px 0; accent-color:#4CAF50; }
+#quality-value { font-weight:600; }
 #compress-btn { padding:12px; font-size:16px; font-weight:600; color:white; background:linear-gradient(135deg,#4CAF50,#67e8f9); border:none; border-radius:8px; cursor:pointer; transition:0.3s; }
 #compress-btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+
 #output img { max-width:100%; margin-top:15px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
 #output a { display:inline-block; margin-top:10px; padding:10px 20px; background:#2196F3; color:white; text-decoration:none; border-radius:8px; font-weight:500; transition:0.3s; }
 #output a:hover { background:#1976D2; }
 
-@media(max-width:600px){
-    .hero h1{ font-size:2em; }
-    .hero p{ font-size:1em; }
-    #compress-btn{ font-size:14px; padding:10px; }
-}
+.ad-space { margin:25px 0; text-align:center; }
+
+footer { background:#222; color:white; text-align:center; padding:20px 10px; margin-top:40px; border-radius:10px 10px 0 0; }
 </style>
 </head>
 <body>
 
 <header>
-    Online Tools Hub
+    Image Compressor
     <nav>
-        <a href="#images">Image Tools</a>
-        <a href="#pdfs">PDF Tools</a>
-        <a href="#others">Other Tools</a>
+        <a href="index.html">Home</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="pdf-tools.html">PDF Tools</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h1>All-in-One Online Tools</h1>
-    <p>Compress, convert, and edit your images and PDFs easily without installing anything.</p>
-</section>
-
 <div class="container">
-
-    <!-- Ad Space Top -->
+    <!-- Top AdMob Banner -->
     <div class="ad-space">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client=ca-app-pub-2014274337287264/8068010558
-            data-ad-slot="XXXXXXXXXX"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+        <iframe style="border:0; width:100%; height:50px;" 
+            src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-app-pub-2014274337287264&slotname=8068010558&ad_type=banner"></iframe>
     </div>
 
-    <h2 id="images">Image Tools</h2>
-    <div class="tools-grid">
-        <div class="tool-card" onclick="document.getElementById('compress-section').scrollIntoView({behavior:'smooth'})">
-            <img src="icons/compress.png" alt="Image Compressor">
-            <h3>Image Compressor</h3>
-            <p>Reduce image size instantly without losing quality.</p>
-            <a href="#compress-section">Use Now →</a>
-        </div>
-        <div class="tool-card">
-            <img src="icons/resize.png" alt="Image Resizer">
-            <h3>Image Resizer</h3>
-            <p>Resize your images to custom dimensions.</p>
-            <a href="image-resizer.html">Try Now →</a>
-        </div>
-        <div class="tool-card">
-            <img src="icons/convert.png" alt="Image Converter">
-            <h3>Image Converter</h3>
-            <p>Convert images to different formats (JPEG, PNG, WebP).</p>
-            <a href="image-converter.html">Try Now →</a>
-        </div>
-    </div>
+    <h1>Compress Your Image</h1>
+    <p>Upload your image, select the compression level, and download the optimized image instantly.</p>
 
-    <!-- Embedded Image Compression Tool -->
     <div id="compress-section">
-        <h2>Compress Your Image</h2>
         <input type="file" id="image-input" accept="image/*">
         <label for="quality">Compression Level: <span id="quality-value">80%</span></label>
         <input type="range" id="quality" min="10" max="100" value="80">
@@ -117,39 +68,17 @@ input[type="range"] { width:100%; margin:10px 0; accent-color:#4CAF50; }
         <div id="output"></div>
     </div>
 
-    <h2 id="pdfs">PDF Tools</h2>
-    <div class="tools-grid">
-        <div class="tool-card">
-            <img src="icons/pdf-compress.png" alt="PDF Compressor">
-            <h3>PDF Compressor</h3>
-            <p>Reduce PDF file size quickly and easily.</p>
-            <a href="pdf-compressor.html">Try Now →</a>
-        </div>
-        <div class="tool-card">
-            <img src="icons/pdf-merge.png" alt="PDF Merger">
-            <h3>PDF Merger</h3>
-            <p>Combine multiple PDFs into a single file.</p>
-            <a href="pdf-merger.html">Try Now →</a>
-        </div>
-    </div>
-
-    <!-- Ad Space Bottom -->
+    <!-- Bottom AdMob Banner -->
     <div class="ad-space">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client=ca-app-pub-2014274337287264/6702957998
-            data-ad-slot="XXXXXXXXXX"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+        <iframe style="border:0; width:100%; height:50px;" 
+            src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-app-pub-2014274337287264&slotname=6702957998&ad_type=banner"></iframe>
     </div>
-
 </div>
 
 <footer>
     &copy; 2025 Online Tools Hub. All Rights Reserved.
 </footer>
 
-<!-- Scripts -->
 <script>
 const qualityInput = document.getElementById('quality');
 const qualityValue = document.getElementById('quality-value');
@@ -180,10 +109,7 @@ document.getElementById('compress-btn').addEventListener('click', () => {
     }
     reader.readAsDataURL(file);
 });
-
-(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </body>
 </html>
