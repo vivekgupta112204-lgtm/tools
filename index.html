@@ -226,7 +226,57 @@
     <div class="tool-grid">
       <div class="tool">
         <img src="icons/compress.png" alt="Image Compressor">
-        <h3>Image Compressor</h3>
+        <h3>Image Compressor</h3><a href="image-compressor.html" class="tool-card">
+  <img src="icons/compress.png" alt="Image Compressor">
+  <h3>Image Compressor</h3>
+  <p>Reduce image size without losing quality.</p>
+  <span>Try Now →</span>
+</a>
+
+<style>
+  .tool-card {
+    display: block;
+    background: #111827;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    background: #1e293b;
+  }
+
+  .tool-card img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+  }
+
+  .tool-card h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  .tool-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 6px 0 12px;
+  }
+
+  .tool-card span {
+    color: #6366f1;
+    font-weight: 600;
+  }
+</style>
+
         <p>Reduce image size without losing quality.</p>
         <a href="image-compressor.html">Try Now →</a>
       </div>
