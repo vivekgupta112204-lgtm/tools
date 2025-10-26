@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- SEO & Social -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Compressor — Fast & Responsive | Optimize Images for Web</title>
+  <meta name="description" content="Compress, resize and optimize images in the browser. Choose quality, format (JPEG/WEBP/PNG), and download compressed images. Includes AdSense slots for monetization." />
+  <link rel="canonical" href="https://example.com/image-compressor" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Image Compressor — Fast & Responsive" />
+  <meta property="og:description" content="Compress and optimize images quickly in your browser. Adjustable quality, format, and resizing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://example.com/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b1226" />
+
+  <!-- Structured data (SoftwareApplication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Compressor",
+    "url": "https://example.com/image-compressor",
+    "description": "Compress, resize and optimize images in the browser with adjustable quality and formats.",
+    "applicationCategory": "ImageTools",
+    "operatingSystem": "All",
+    "author": {
+      "@type": "Organization",
+      "name": "Your Company"
+    }
+  }
+  </script>
+
+  <!-- Preconnect for performance (AdSense & fonts if needed) -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <style>
+    /* Minimal, responsive, accessible UI */
+    :root{
+      --bg:#0b1226; --card:#0f1724; --muted:#94a3b8; --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1200px;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#071026 120%); color:#e6eef8; -webkit-font-smoothing:antialiased;
+      padding:24px; display:flex; align-items:flex-start; justify-content:center;
+      min-height:100vh;
+    }
+    .container{width:100%; max-width:var(--max-width); display:grid; gap:20px; grid-template-columns: 1fr 380px;}
+    @media (max-width:980px){ .container{grid-template-columns: 1fr;} }
+    header{display:flex; align-items:center; gap:16px; margin-bottom:4px;}
+    header h1{font-size:1.25rem; margin:0}
+    header p{margin:0; color:var(--muted); font-size:0.9rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015)); border-radius:var(--radius); padding:16px; box-shadow:0 6px 20px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.02)}
+    .u-row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .upload{border:2px dashed rgba(255,255,255,0.04); padding:18px; border-radius:10px; text-align:center; cursor:pointer}
+    .upload input{display:none}
+    .controls{display:grid; gap:12px; margin-top:12px}
+    label{font-size:0.85rem; color:var(--muted)}
+    .slider{width:100%}
+    .thumbs{display:grid; gap:10px; grid-template-columns: repeat(auto-fill,minmax(110px,1fr))}
+    .thumb{background:var(--glass); padding:10px; border-radius:8px; text-align:center; font-size:0.85rem}
+    .thumb img{max-width:100%; height:80px; object-fit:cover; border-radius:6px; display:block; margin:0 auto 8px}
+    button{background:linear-gradient(90deg,var(--accent),#5b21b6); border:none; color:white; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600}
+    button.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06)}
+    small{color:var(--muted)}
+    .right-col{position:sticky; top:20px; align-self:start}
+    .ad-slot{background:linear-gradient(180deg,#071022 0%, rgba(255,255,255,0.01) 100%); padding:10px; border-radius:10px; text-align:center; min-height:90px; display:flex; align-items:center; justify-content:center; color:var(--muted)}
+    .meta{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:8px}
+    .stat{background:rgba(255,255,255,0.02); padding:8px 10px; border-radius:8px; font-size:0.9rem}
+    footer{font-size:0.85rem; color:var(--muted); margin-top:12px}
+    .download-list{display:flex; flex-direction:column; gap:8px; margin-top:10px}
+    .download-item{display:flex; gap:8px; align-items:center; justify-content:space-between; padding:8px; background:rgba(255,255,255,0.02); border-radius:8px}
+    input[type="number"]{width:100%; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit}
+    select{padding:8px; border-radius:8px; background:transparent; color:inherit; border:1px solid rgba(255,255,255,0.03)}
+    .muted{color:var(--muted)}
+    .hint{font-size:0.8rem; color:var(--muted)}
+  </style>
+
+  <!-- AdSense: Replace YOUR_ADSENSE_CLIENT_ID with ca-pub-XXXXXXXXXXXXXX -->
+  <!-- Example: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456 -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_CLIENT_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main class="container" role="main">
+    <section>
+      <header>
+        <div>
+          <h1>Image Compressor</h1>
+          <p>Compress & optimize images in your browser — choose quality, format, resize, and download. No uploads, no server.</p>
+        </div>
+      </header>
+
+      <article class="card" aria-labelledby="uploader">
+        <h2 id="uploader" style="margin:0 0 8px 0;">Upload & Settings</h2>
+
+        <div class="u-row">
+          <label class="upload" id="dropzone" for="fileElem" tabindex="0" role="button" aria-label="Upload or drop images">
+            <input id="fileElem" type="file" accept="image/*" multiple />
+            <div style="font-weight:700">Click to upload or drag & drop</div>
+            <div class="hint">Supports JPG, PNG, WEBP. Multiple files allowed.</div>
+          </label>
+
+          <div style="flex:1;">
+            <div class="controls">
+              <div class="u-row">
+                <div style="flex:1">
+                  <label>Output format</label>
+                  <select id="format">
+                    <option value="image/webp">WebP (best web)</option>
+                    <option value="image/jpeg">JPEG (widely compatible)</option>
+                    <option value="image/png">PNG (lossless)</option>
+                  </select>
+                </div>
+                <div style="width:120px">
+                  <label>Quality (%)</label>
+                  <input id="quality" type="range" min="10" max="100" value="80" class="slider" />
+                  <div class="muted" style="text-align:right"><small id="qualityLabel">80%</small></div>
+                </div>
+              </div>
+
+              <div class="u-row">
+                <div style="flex:1">
+                  <label>Resize (max width)</label>
+                  <input id="maxWidth" type="number" min="16" placeholder="e.g. 1600" />
+                  <small class="hint">Leave empty to keep original width</small>
+                </div>
+                <div style="width:160px">
+                  <label>Batch mode</label>
+                  <select id="batchMode">
+                    <option value="separate">Compress each separately</option>
+                    <option value="zip">Compress & download as ZIP</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="u-row" style="margin-top:6px">
+                <button id="compressBtn">Compress Selected</button>
+                <button id="clearBtn" class="ghost" aria-label="Clear selection">Clear</button>
+                <div style="flex:1"></div>
+                <div class="meta">
+                  <div class="stat" id="totalFiles">Files: 0</div>
+                  <div class="stat" id="totalSize">Total size: 0 KB</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <h3 style="margin:0 0 8px 0">Selected Images</h3>
+          <div id="thumbs" class="thumbs" aria-live="polite"></div>
+        </div>
+
+        <div style="margin-top:10px" id="results">
+          <h3 style="margin:0 0 8px 0">Compressed Files</h3>
+          <div id="downloads" class="download-list"></div>
+        </div>
+
+        <footer>
+          <small>Tip: Use <strong>WebP</strong> for best compression on modern browsers. PNG is lossless — choose only when you need transparency without quality loss.</small>
+        </footer>
+      </article>
+
+      <article class="card" style="margin-top:12px;">
+        <h3 style="margin:0 0 10px 0">Accessibility & Performance</h3>
+        <ul style="margin:0 0 8px 18px; color:var(--muted)">
+          <li>Client-side compression: images never leave the user's device.</li>
+          <li>Lazy processing and responsive layout for mobile devices.</li>
+          <li>SEO-friendly meta tags, structured data & fast preconnects.</li>
+        </ul>
+        <h3 style="margin-top:10px">Developer Notes</h3>
+        <small class="muted">
+          This is plain vanilla JS and works without libraries. You can add server-side optimization or analytics as needed. Replace AdSense placeholders before publishing.
+        </small>
+      </article>
+    </section>
+
+    <aside class="right-col">
+      <div class="card ad-slot" aria-label="Advertisement top">
+        <!-- AdSense slot: replace data-ad-client & data-ad-slot with yours -->
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="YOUR_ADSENSE_CLIENT_ID"
+          data-ad-slot="AD_SLOT_ID_1"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4 style="margin:0 0 8px 0">Quick actions</h4>
+        <div class="u-row" style="flex-direction:column">
+          <button id="downloadAll" class="ghost">Download All</button>
+          <button id="copyData" class="ghost">Copy Data URIs</button>
+        </div>
+        <div style="margin-top:10px">
+          <small class="muted">Monetization: replace AdSense IDs with your ad unit & publisher ID. For example, set <code>data-ad-client="ca-pub-1234567890123456"</code>.</small>
+        </div>
+      </div>
+
+      <div class="card ad-slot" style="margin-top:12px" aria-label="Advertisement bottom">
+        <!-- Another AdSense slot -->
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="YOUR_ADSENSE_CLIENT_ID"
+          data-ad-slot="AD_SLOT_ID_2"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- Core JS: compression logic -->
+  <script>
+    // Helpful utility functions
+    const el = id => document.getElementById(id);
+    const formatBytes = (bytes) => {
+      if (bytes === 0) return '0 B';
+      const k = 1024, dm = 2, sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    };
+
+    // UI elements
+    const fileElem = el('fileElem');
+    const dropzone = el('dropzone');
+    const thumbs = el('thumbs');
+    const totalFiles = el('totalFiles');
+    const totalSize = el('totalSize');
+    const compressBtn = el('compressBtn');
+    const clearBtn = el('clearBtn');
+    const downloads = el('downloads');
+    const qualityRange = el('quality');
+    const qualityLabel = el('qualityLabel');
+    const formatSel = el('format');
+    const maxWidth = el('maxWidth');
+    const batchMode = el('batchMode');
+    const downloadAll = el('downloadAll');
+    const copyData = el('copyData');
+
+    let files = []; // {file:File, dataUrl:string, width, height, size}
+    let compressedResults = []; // {name, blob, size, url}
+
+    // drag & drop
+    ;['dragenter','dragover','dragleave','drop'].forEach(eventName => {
+      dropzone.addEventListener(eventName, (e) => {
+        e.preventDefault(); e.stopPropagation();
+      }, false);
+    });
+    dropzone.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+    dropzone.addEventListener('click', () => fileElem.click());
+    dropzone.addEventListener('keypress', e => { if(e.key === 'Enter' || e.key === ' ') fileElem.click(); });
+
+    fileElem.addEventListener('change', (e) => handleFiles(e.target.files));
+
+    function handleFiles(fileList){
+      const list = Array.from(fileList).filter(f => f.type.startsWith('image/'));
+      if(!list.length) return;
+      list.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const img = new Image();
+          img.onload = () => {
+            files.push({file, dataUrl: ev.target.result, width: img.width, height: img.height, size: file.size});
+            renderThumbs();
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderThumbs(){
+      thumbs.innerHTML = '';
+      let total = 0;
+      files.forEach((f, idx) => {
+        total += f.size;
+        const d = document.createElement('div');
+        d.className = 'thumb';
+        d.innerHTML = `
+          <img alt="${f.file.name}" src="${f.dataUrl}" />
+          <div style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(f.file.name)}</div>
+          <div class="muted">${formatBytes(f.size)}</div>
+          <div style="margin-top:6px" class="u-row">
+            <button class="ghost" data-idx="${idx}" onclick="removeFile(event)">Remove</button>
+            <button class="ghost" data-idx="${idx}" onclick="previewFull(event)">Preview</button>
+          </div>
+        `;
+        thumbs.appendChild(d);
+      });
+      totalFiles.textContent = `Files: ${files.length}`;
+      totalSize.textContent = `Total size: ${formatBytes(total)}`;
+    }
+
+    // a tiny safe-escape for names in rendered HTML
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    // remove file function (called from generated html)
+    window.removeFile = (e) => {
+      const idx = parseInt(e.currentTarget.dataset.idx,10);
+      files.splice(idx,1);
+      renderThumbs();
+    };
+    window.previewFull = (e) => {
+      const idx = parseInt(e.currentTarget.dataset.idx,10);
+      const w = window.open('');
+      w.document.write(`<title>${escapeHtml(files[idx].file.name)}</title><img src="${files[idx].dataUrl}" style="max-width:100%;height:auto"/>`);
+    };
+
+    // Quality label update
+    qualityRange.addEventListener('input', () => qualityLabel.textContent = qualityRange.value + '%');
+
+    // clear all
+    clearBtn.addEventListener('click', () => {
+      files = []; compressedResults = []; downloads.innerHTML = ''; renderThumbs();
+    });
+
+    // Compress action
+    compressBtn.addEventListener('click', async () => {
+      if (!files.length) { alert('Please select images first.'); return; }
+      downloads.innerHTML = '';
+      compressedResults = [];
+
+      // For ZIP mode we'd need JSZip; but to keep zero-dependency we can create multiple downloads
+      const format = formatSel.value;
+      const qualityVal = Math.min(Math.max(parseInt(qualityRange.value,10),10),100) / 100;
+      const maxW = parseInt(maxWidth.value,10) || null;
+
+      // Process files sequentially to avoid blocking memory for huge batches
+      for (let i=0;i<files.length;i++){
+        const f = files[i];
+        try {
+          const result = await compressImage(f, format, qualityVal, maxW);
+          compressedResults.push(result);
+          addDownloadItem(result);
+        } catch (err) {
+          console.error('Compression failed for', f.file.name, err);
+        }
+      }
+      // If user selected ZIP mode, offer a hint (we didn't include ZIP creation to keep dependencies minimal)
+      if (batchMode.value === 'zip') {
+        const info = document.createElement('div');
+        info.className = 'muted';
+        info.textContent = 'ZIP export selected — To download all images as a ZIP, integrate a small library like JSZip. For now use "Download All" to individually save files.';
+        downloads.prepend(info);
+      }
+    });
+
+    // compress single image: returns {name, blob, size, url}
+    async function compressImage(fileObj, outType='image/webp', quality=0.8, maxWidth=null){
+      return new Promise((res, rej) => {
+        const img = new Image();
+        img.onload = async () => {
+          // calculate target size
+          let targetW = img.width, targetH = img.height;
+          if (maxWidth && img.width > maxWidth) {
+            targetW = maxWidth;
+            targetH = Math.round(img.height * (maxWidth / img.width));
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = targetW;
+          canvas.height = targetH;
+          const ctx = canvas.getContext('2d');
+
+          // draw with smoothing
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, targetW, targetH);
+
+          // If output PNG requested, browsers typically ignore quality param.
+          const mime = outType;
+
+          // Some browsers may not support webp; fall back.
+          let finalMime = mime;
+          if (mime === 'image/webp' && !HTMLCanvasElement.prototype.toBlob) {
+            // very old fallback — convert to jpeg
+            finalMime = 'image/jpeg';
+          }
+
+          // toBlob is async—use it
+          canvas.toBlob((blob) => {
+            if (!blob) {
+              rej(new Error('Compression produced null blob'));
+              return;
+            }
+            // choose output extension based on mime
+            const ext = finalMime.split('/')[1].split('+')[0];
+            // preserve original name but swap extension
+            const baseName = (fileObj.file.name || 'image').replace(/\.[^/.]+$/, "");
+            const outName = `${baseName}-compressed.${ext}`;
+            const url = URL.createObjectURL(blob);
+            res({name: outName, blob, size: blob.size, url});
+          }, finalMime, (finalMime === 'image/png' ? undefined : quality));
+        };
+        img.onerror = (e) => rej(e);
+        img.src = fileObj.dataUrl;
+      });
+    }
+
+    function addDownloadItem(result){
+      const item = document.createElement('div');
+      item.className = 'download-item';
+      item.innerHTML = `
+        <div style="display:flex;gap:8px;align-items:center;">
+          <img src="${result.url}" alt="${escapeHtml(result.name)}" style="width:56px;height:40px;object-fit:cover;border-radius:6px"/>
+          <div style="min-width:0">
+            <div style="font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:220px">${escapeHtml(result.name)}</div>
+            <small class="muted">${formatBytes(result.size)}</small>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a download="${result.name}" href="${result.url}"><button>Download</button></a>
+          <button class="ghost" onclick="revokeUrl('${result.url}')">Remove</button>
+        </div>
+      `;
+      downloads.appendChild(item);
+    }
+
+    // revoke helper
+    window.revokeUrl = (u) => {
+      URL.revokeObjectURL(u);
+      // hide items referencing this url
+      Array.from(downloads.querySelectorAll('img')).forEach(img => {
+        if (img.src === u) img.closest('.download-item').remove();
+      });
+    };
+
+    // download all button - will click each link sequentially
+    downloadAll.addEventListener('click', () => {
+      if (!compressedResults.length) { alert('No compressed files yet.'); return; }
+      compressedResults.forEach((r, i) => {
+        const a = document.createElement('a');
+        a.href = r.url; a.download = r.name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+    });
+
+    // copy Data URIs - for small images
+    copyData.addEventListener('click', async () => {
+      if (!compressedResults.length) { alert('No compressed files to copy.'); return; }
+      let text = '';
+      for(const r of compressedResults) {
+        // convert blob to dataURL
+        text += `${r.name}:\n` + await blobToDataURL(r.blob) + '\n\n';
+      }
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('Copied ' + compressedResults.length + ' images as Data URIs to clipboard.');
+      } catch (err) {
+        alert('Failed to copy to clipboard: ' + err.message);
+      }
+    });
+
+    function blobToDataURL(blob){
+      return new Promise((res) => {
+        const reader = new FileReader();
+        reader.onload = () => res(reader.result);
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    // On-page SEO-friendly progressive enhancement: set document title fragment showing files
+    const observer = new MutationObserver(() => {
+      document.title = `Image Compressor — ${files.length} selected`;
+    });
+    observer.observe(thumbs, {childList:true, subtree:false});
+
+    // Lightweight touch: keyboard accessibility for dropzone
+    dropzone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { fileElem.click(); e.preventDefault(); }
+    });
+
+    // Performance: revoke object URLs when page unloads
+    window.addEventListener('beforeunload', () => {
+      compressedResults.forEach(r => URL.revokeObjectURL(r.url));
+    });
+
+    // initial render
+    renderThumbs();
+
+    // Optional: progressive enhancement - service worker registration stub (uncomment if you provide a service worker file)
+    /*
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(()=>console.log('sw registered'));
+    }
+    */
+  </script>
+
+  <!-- Footer attribution / small structured data improvement for SEO -->
+  <footer style="width:100%;max-width:var(--max-width);margin:16px auto 0; text-align:center; color:var(--muted)">
+    <small>Built with privacy-first client-side compression • <a href="#" style="color:inherit;opacity:0.9">Privacy</a> • <a href="#" style="color:inherit;opacity:0.9">Terms</a></small>
+  </footer>
+
+</body>
+</html>
